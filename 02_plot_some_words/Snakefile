@@ -1,0 +1,26 @@
+WORDS = ['solved', 'hook', 'queen', 'fly', 'London', 'rabbit']
+NAMES = ['alice', 'sherlock', 'peter']
+
+rule all:
+    input: 
+        expand("plots/bar_{characters}.png", characters = NAMES)
+
+rule find_words:
+    input: 
+        book="data/{protagonist}.txt"
+    output: 
+        "results/{protagonist}.txt"
+    params:
+        search=('\|').join(WORDS)
+    shell:
+        '''
+        grep -o '{params.search}' {input.book} > results/{wildcards.protagonist}.txt
+        ''' 
+
+rule plot_words:
+    input: 
+        only_words="results/{hero}.txt"
+    output: 
+        barplot="plots/bar_{hero}.png"
+    script:
+        "scripts/barplot.R"

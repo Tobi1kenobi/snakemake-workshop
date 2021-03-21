@@ -1,0 +1,21 @@
+rule all:
+    input:
+        "results/1_I",
+        "results/2_ran",
+        "results/3_my",
+        "results/4_first",
+        "results/5_snakemake",
+        "results/6_pipeline"
+
+rule create_files:
+    output: 
+        "results/01_I",
+        "results/02_ran",
+        "results/03_my",
+        "results/04_first",
+        "results/05_snakemake",
+        "results/06_pipeline"
+    shell: 
+        '''
+        touch {output}
+        '''
