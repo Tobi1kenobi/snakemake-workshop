@@ -1,8 +1,11 @@
 # Snakemake introduction and simple pipelines
 
+![Workshop intro slide](Images/Workshop-intro.png)
+
 ## What this will cover
 
-* Installation and building first snakemake pipeline
+* Installation and writing simple snakemake rules and pipelines
+* The snakemake tutorial from the snakemake website
 * Utilising conda environments for rules
 * Submitting jobs with snakemake
 * Speeding up DAG generation
@@ -69,7 +72,7 @@ The task here is to complete `practical.smk` to produce the same output as the t
 rm -r results
 ```
 
-## Example 02 - Plot some words
+## Example 02 - Plot some words
 
 Stepping things up a notch, passing input and output between multiple rules and integrating R scripts into Snakemake.
 
@@ -86,13 +89,3 @@ rm -r plots
 ## Example 03 - Snakemake tutorial
 
 The official Snakemake tutorial taken from their documentation. It is a very simple read mapping and variant calling pipeline. I've sprinkled in a few extras here that aren't part of the tutorial to hopefully pad it out a little bit more.
-
-## Practical examples
-
-### Tom's example from Slack
-
-Tom mentioned on Slack what was an easy way to submit N jobs with many Slurm parameters. I've created a simple template for doing this.
-
-### Dealing with 100,000 files at once
-
-This will be a simple example where I just run a few unix commands to generate very many small files in an attempt to slow Snakemake's DAG generation step right down. And then I can hopefully overcome this with wildcard constraints set in the Snakefile

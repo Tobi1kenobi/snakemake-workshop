@@ -3,7 +3,7 @@ SAMPLES = ["A", "B"]
 
 rule all:
     input:
-        "plots/quals.svg"
+        "plots/quals.png"
 
 include: "modules/map.smk"
 include: "modules/call.smk"
