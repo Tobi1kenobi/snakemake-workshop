@@ -11,7 +11,7 @@ rule find_words:
     output: 
         "results/{protagonist}.txt"
     params:
-        search=('\|').join(WORDS)
+        search=('\|').join(WORDS) #  = solved|hook|queen|fly|London|rabbit
     shell:
         '''
         grep -o '{params.search}' {input.book} > results/{wildcards.protagonist}.txt

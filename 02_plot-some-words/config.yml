@@ -1,0 +1,19 @@
+# Nested dictionary structure which will translate to pythong code as follows:
+# {'BOOK_INFO':{'peter':['hook', 'tick', ...], 'alice':['mad', 'late', ...]}}
+
+BOOK_INFO:
+  peter: 
+      - hook
+      - tick
+      - pirate
+      - Neverland
+  alice:
+      - mad
+      - late
+      - heart
+      - grin
+  sherlock: 
+      - murder
+      - mystery
+      - London
+      - elementary
