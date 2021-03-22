@@ -9,3 +9,39 @@ rule create_files:
         '''
         touch {output}
         '''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Wildcards save your from typing this and allow you to parallelise your jobs
+# rule create_files:
+#     output: 
+#         "results/1_I",
+#         "results/2_ran",
+#         "results/3_my",
+#         "results/4_first",
+#         "results/5_snakemake",
+#         "results/6_pipeline"
+#     shell: 
+#         '''
+#         touch {output[0]}
+#         touch {output[1]}
+#         touch {output[2]}
+#         touch {output[3]}
+#         touch {output[4]}
+#         touch {output[5]}
+#         '''

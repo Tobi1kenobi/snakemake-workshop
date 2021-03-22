@@ -8,7 +8,6 @@
 * The snakemake tutorial from the snakemake website
 * Utilising conda environments for rules
 * Submitting jobs with snakemake
-* Speeding up DAG generation
 
 ## What this won't cover
 
@@ -44,15 +43,30 @@ snakemake -npr
 snakemake
 ```
 
+What does `-n` do? Dry run.
+
+What does `-p` do? Print commands to be executed.
+
+What does `-r` do? Prints the REASON each rule needs to be run.
+
+Running `snakemake -j 1` will execute the pipeline in `Snakefile` by running all the rules that lead to the input for `rule all` being generated. 
+
+
+![Rule DAG](Images/01_rule-dag.png)
+
+![File graph](Images/01_filegraph.png)
+
 ### Wilcards.smk
 
-The same as above but written in a more "snakemakey" way introducing wildcards and the expand function.
+The same output as above but written in a more "snakemakey" way introducing wildcards and the expand function.
 
 ```bash
 rm -r results
 snakemake -s wildcards.smk -npr
 snakemake -s wildcards.smk
 ```
+
+![Wildcards DAG](Images/01_wildcards-dag.png)
 
 ### Loop.smk
 
