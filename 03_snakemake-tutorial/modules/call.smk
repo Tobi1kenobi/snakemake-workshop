@@ -14,6 +14,6 @@ rule plot_quals:
     input:
         "results/all.vcf"
     output:
-        "plots/quals.svg"
-    script:
-        "scripts/plot-quals.py"
+        "plots/quals.png"
+    shell:
+        "python scripts/plot-quals-flags.py --vcf {input} --output {output}"
