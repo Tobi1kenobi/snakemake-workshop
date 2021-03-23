@@ -144,7 +144,7 @@ With the `--use-conda` flag, snakemake will install a local conda environment us
 
 Note: Some input here isn't used directly e.g. `.bai` files. This tells snakemake not to start executing these rules until those files exist.
 
-# modularised.smk
+### modularised.smk
 
 This example shows how large pipelines can be broken down into modules. This tidies up long snakemake pipelines a bit, allows for sharing of code between pipelines as well as simplifies the process of running only a small part of a pipeline.
 
@@ -162,7 +162,7 @@ We don't have to use conda envs for dependencies as long as the tools we need ar
 
 I've also included an example of using flags with your scripts rather than the snakemake object as well as the temp function which will delete intermediary files as soon as they're no longer needed.
 
-# practical.smk
+### practical.smk
 
 Final interactive part: I've decided I'd like to plot the SNP data and INDEL data separately - can you make a new rule to divide this data and then modify the `plot_quals` rule and `rule all` to fit this new change. 
 
@@ -173,3 +173,14 @@ bcftools view --types indels results/all.vcf
 ```
 
 Activate your previously made conda env and give the commands a spin on `results/all.vcf` if you're not familiar with bcftools.
+
+
+## Running snakemake on cluster
+
+I don't have access to a SLURM cluster job submission system so will have to use LSF as an example but it's very straightforward, see [here](https://github.com/snakemake-profiles/doc) for how to set-up.
+Once set-up submitting jobs instead of executing locally is as simple as
+```bash
+snakemake --profile lsf
+```
+
+And it will submit jobs with the default resources specified upon set-up or in your local `lsf.yaml` file. If you have a local file these resources/flags can be customised on a rule-by-rule basis.
