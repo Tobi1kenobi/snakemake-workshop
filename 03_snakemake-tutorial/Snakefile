@@ -1,5 +1,7 @@
 SAMPLES = ["A", "B"]
 
+# See snakemake documentation for better description of this than I can give
+# https://snakemake.readthedocs.io/en/stable/tutorial/basics.html
 
 rule all:
     input:

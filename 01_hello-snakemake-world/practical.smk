@@ -4,5 +4,5 @@ rule all:
     input:
         expand("results/{filename}",filename=outfiles)
 
+# Use expand to finish this snakemake pipeline
 rule create_files:
-

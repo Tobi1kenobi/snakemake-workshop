@@ -1,3 +1,4 @@
+# Your rule all input defines the final output for your pipeline
 rule all:
     input:
         "results/1_I",
@@ -7,6 +8,8 @@ rule all:
         "results/5_snakemake",
         "results/6_pipeline"
 
+# Snakemake searches backwards from the rule all input to find rules which will generate
+# the rule all input with their output
 rule create_files:
     output: 
         "results/1_I",
