@@ -1,3 +1,4 @@
+# I use python lists to define my input
 WORDS = ['solved', 'hook', 'queen', 'fly', 'London', 'rabbit']
 NAMES = ['alice', 'sherlock', 'peter']
 
@@ -17,6 +18,8 @@ rule find_words:
         grep -o '{params.search}' {input.book} > results/{wildcards.protagonist}.txt
         ''' 
 
+# Wildcard names are not tracked between rules only within them, this is why I have
+# changed the names between rule
 rule plot_words:
     input: 
         only_words="results/{hero}.txt"
